@@ -1,0 +1,61 @@
+﻿# A5:ER FORMAT:13
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=XSMB
+Author=bc
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",7,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=7
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=4
+RDBMSTypeName=Microsoft SQL Server 2008
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=tblLoaiXoSo
+LName=tblLoaiXoSo
+Comment=
+TableOption=
+Page=MAIN
+Left=250
+Top=250
+Field="id","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="type","type","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="name","name","nvarchar(250)","NOT NULL",,"","",$FFFFFFFF,""
+Field="meta_title","meta_title","nvarchar(250)",,,"","",$FFFFFFFF,""
+Field="layoutView","layoutView","ntext",,,"","",$FFFFFFFF,""
+Field="layoutRegist","layoutRegist","ntext",,,"","",$FFFFFFFF,""
+Field="InsertDate","InsertDate","datetime",,,"","",$FFFFFFFF,""
+Field="UpdDate","UpdDate","datetime",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20191224155524
+Position="MAIN",250,250,392,313
+ZOrder=0
