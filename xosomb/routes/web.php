@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([
+    'namespace' => 'Admin',
+    'prefix' => 'admin',
+], function () {
+
+    Route::post('/login', 'UserController@login');
+    Route::get('/logout', 'UserController@logout')->name('management.user.logout');
+
+//    Route::get('/', 'UserController@login')->name('management.home');
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+});
