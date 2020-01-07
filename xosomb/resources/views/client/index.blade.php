@@ -307,9 +307,11 @@
             </ul>
         </div>
     </div>
+
     <button class="btn-see-more magb10" id="result-more" value="Xem thêm" data-wday="7" data-page="2"
             data-province="mt-wday">Xem thêm
     </button>
+
     <div class="box box-html">
         <p><strong><a href="https://xoso.me/xsmt-thu-7-sxmt-ket-qua-xo-so-mien-trung-thu-7.html"
                       title="XSMT thứ 7"><span style="color:#FF0000">XSMT thứ 7</span></a></strong> được

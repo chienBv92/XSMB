@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('client.index');
+    return view('client.xsmb');
 });
 
 Route::group([
