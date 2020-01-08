@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('client.xsmb');
 });
 
+Route::get('/getAllProvince', function () {
+    return view('client.xsmb');
+});
+Route::get('/getAllProvince', 'ProvinceController@getAllProvince');
+
+Route::get('/{metatile}', [
+    'as'=> 'xosolink',
+    'uses'=> 'XosoController@getXosoInfo'
+]);
+
 Route::group([
     'namespace' => 'Admin',
     'prefix' => 'admin',
