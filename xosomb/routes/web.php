@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('client.xsmb');
+    return view('client.content');
 });
 
 Route::get('/getAllProvince', function () {
-    return view('client.xsmb');
+    return view('client.content');
 });
 Route::get('/getAllProvince', 'ProvinceController@getAllProvince');
 

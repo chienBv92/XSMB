@@ -19,7 +19,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=2,minimum-scale=1,shrink-to-fit=no">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script></head>
 
 <body>
 <div id="fb-root"></div>

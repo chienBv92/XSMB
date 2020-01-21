@@ -43,7 +43,7 @@
         <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-        @yield('content')
+        @include('client.content')
 
         <!-- /.container-fluid -->
 
@@ -51,9 +51,8 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-    @include('admin.layout.footer')
-
-    <!-- End of Footer -->
+        @include('admin.layout.footer')
+        <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
