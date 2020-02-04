@@ -1,10 +1,12 @@
-@extends('client.content')
-
-@section('content')
+<?php
+$lotData = $response_data["data"]["lotData"];
+$dau = $response_data["data"]["dau"];
+$duoi = $response_data["data"]["duoi"];
+$resultDate = Carbon\Carbon::createFromTimestamp(round($response_data["data"]["resultDate"] / 1000), '+07:00');
+?>
 <div class="box">
-    <h2 class="title-bor clearfix"><strong><a class="title-a" href="https://xoso.me/xsmb-sxmb-xstd-xshn-kqxsmb-ket-qua-xo-so-mien-bac.html" title="XSMB">XSMB</a> » <a class="title-a" href="https://xoso.me/xsmb-thu-2-ket-qua-xo-so-mien-bac-thu-2.html" title="XSMB thứ 2">XSMB
-                thứ 2</a> » <a class="title-a" href="https://xoso.me/xsmb-6-1-2020-ket-qua-xo-so-mien-bac-ngay-6-1-2020.html" title="XSMB 6-1-2020">Xổ số miền Bắc 06-01-2020</a>
-            <!--        <span class="opt-date">06-01-2020            <input id="searchDate" class="searchDate nobor" type="text" value="06-01-2020"> <img src="https://xoso.me/css/images/click.gif" title="click" alt="click" class="imgclick"></span>-->
+    <h2 class="title-bor clearfix"><strong><a class="title-a" href="" title="XSMB">XSMB</a> » <a class="title-a" href="{!! Request::segment(1) !!}/{{$resultDate->dayOfWeek + 1}}" title="XSMB {{config('constants.weekMaps')[$resultDate->dayOfWeek]}}">XSMB
+                {{config('constants.weekMaps')[$resultDate->dayOfWeek]}}</a> » <a class="title-a" href="{!! Request::segment(1) !!}/{{$resultDate->format('yy-m-d')}}" title="XSMB {{$resultDate->format('yy-m-d')}}">Xổ số miền Bắc {{$resultDate->format('yy-m-d')}}</a>
         </strong></h2>
 
     <div id="load_kq_mb_0">
@@ -12,62 +14,69 @@
             <table id="kqxs_1" width="100%" cellspacing="0" cellpadding="0" border="0" data-title="" class="kqmb extendable">
                 <tbody>
                     <tr class="madb">
-                        <td colspan="12" class="">Ký hiệu trúng ĐB: <b id="kh_Giai_1"></b> - <b id="kh_Giai_2"></b> - <b id="kh_Giai_3"></b></td>
+                        <td colspan="12" class="">Ký hiệu trúng ĐB:
+                            @foreach($lotData["MaDb"] as $item)
+                            <b>{{$item}}</b>
+                            @if(!$loop->last)
+                            <span>-</span>
+                            @endif
+                            @endforeach
+                        </td>
                     </tr>
                     <tr class="db">
                         <td class="txt-giai">Đặc biệt</td>
-                        <td colspan="12" class="number"><b id="giai_DB"></b></td>
+                        <td colspan="12" class="number"><b>{{$lotData["DB"][0]}}</b></td>
                     </tr>
                     <tr class="bg_f6">
                         <td class="txt-giai">Giải nhất</td>
-                        <td colspan="12" class="number"><b id="giai_1_1"></b></td>
+                        <td colspan="12" class="number"><b>{{$lotData["1"][0]}}</b></td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải nhì</td>
-                        <td colspan="6" class="number"><b id="giai_2_1"></b></td>
-                        <td colspan="6" class="number"><b id="giai_2_2"></b></td>
+                        <td colspan="6" class="number"><b>{{$lotData["2"][0]}}</b></td>
+                        <td colspan="6" class="number"><b>{{$lotData["2"][1]}}</b></td>
                     </tr>
                     <tr class="giai3 bg_ef">
                         <td class="txt-giai" rowspan="2">Giải ba</td>
-                        <td class="number" colspan="4"><b id="giai_3_1"></b></td>
-                        <td class="number" colspan="4"><b id="giai_3_2"></b></td>
-                        <td class="number" colspan="4"><b id="giai_3_3"></b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][0]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][1]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][2]}}</b></td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="number" colspan="4"><b id="giai_3_4"></b></td>
-                        <td class="number" colspan="4"><b id="giai_3_5"></b></td>
-                        <td class="number" colspan="4"><b id="giai_3_6"></b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][3]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][4]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["3"][5]}}</b></td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải tư</td>
-                        <td colspan="3" class="number"><b id="giai_4_1"></b></td>
-                        <td colspan="3" class="number"><b id="giai_4_2"></b></td>
-                        <td colspan="3" class="number"><b id="giai_4_3"></b></td>
-                        <td colspan="3" class="number"><b id="giai_4_4"></b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][0]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][1]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][2]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][3]}}</b></td>
                     </tr>
                     <tr class="giai5 bg_ef">
                         <td class="txt-giai" rowspan="2">Giải năm</td>
-                        <td class="number" colspan="4"><b id="giai_5_1"></b></td>
-                        <td class="number" colspan="4"><b id="giai_5_2"></b></td>
-                        <td class="number" colspan="4"><b id="giai_5_3"></b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][0]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][1]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][2]}}</b></td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="number" colspan="4"><b id="giai_5_4"></b></td>
-                        <td class="number" colspan="4"><b id="giai_5_5"></b></td>
-                        <td class="number" colspan="4"><b id="giai_5_6"></b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][3]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][4]}}</b></td>
+                        <td class="number" colspan="4"><b>{{$lotData["5"][5]}}</b></td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải sáu</td>
-                        <td colspan="4" class="number"><b id="giai_6_1"></b></td>
-                        <td colspan="4" class="number"><b id="giai_6_2"></b></td>
-                        <td colspan="4" class="number"><b id="giai_6_3"></b></td>
+                        <td colspan="4" class="number"><b>{{$lotData["6"][0]}}</b></td>
+                        <td colspan="4" class="number"><b>{{$lotData["6"][1]}}</b></td>
+                        <td colspan="4" class="number"><b>{{$lotData["6"][2]}}</b></td>
                     </tr>
                     <tr class="bg_ef">
                         <td class="txt-giai">Giải bảy</td>
-                        <td colspan="3" class="number"><b id="giai_7_1"></b></td>
-                        <td colspan="3" class="number"><b id="giai_7_2"></b></td>
-                        <td colspan="3" class="number"><b id="giai_7_3"></b></td>
-                        <td colspan="3" class="number"><b id="giai_7_4"></b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["7"][0]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["7"][1]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["7"][2]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["7"][3]}}</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,46 +103,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @for($idx = 0; $idx < count($dau); $idx++) <tr>
+                        <td style="color:#e80000">{{$idx}}</td>
+                        <td>{{implode(",",$dau[$idx])}}</td>
+                        </tr>
+                        @endfor
                 </tbody>
             </table>
             <table id="tblTail" cellspacing="0" cellpadding="0" border="0" class="firstlast-mb fr">
@@ -144,46 +118,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @for($idx = 0; $idx < count($duoi); $idx++) <tr>
+                        <td>{{implode(",", $duoi[$idx])}}</td>
+                        <td style="color:#e80000">{{$idx}}</td>
+                        </tr>
+                        @endfor
                 </tbody>
             </table>
         </div>
@@ -201,94 +140,3 @@
         </ul>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        var todayDateString = getDateString(1);
-
-        getDataXSMBFromAPI(todayDateString);
-
-    });
-
-    /**
-     * Get date string
-     */
-    function getDateString(beforeDay) {
-        // Get today date string
-        var today = new Date();
-        var dd = String(today.getDate() - beforeDay).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-
-        return yyyy + '-' + mm + '-' + dd;
-    }
-
-    /** Format data Loto and fill into table */
-    function setLotoResult(data) {
-        if (data === null || typeof data.data.lotData === undefined) {
-            return;
-        }
-
-        var result = data.data.lotData;
-
-        for (let cntKH = 0; cntKH < 3; cntKH++) {
-            var khGiai = 'b#kh_Giai_' + (cntKH + 1);
-            $(khGiai).text(result["MaDb"][cntKH]);
-        }
-
-        $('b#giai_DB').text(result["DB"]);
-
-        for (let cntGiai = 0; cntGiai < 7; cntGiai++) {
-            for (let pos = 0; pos < result[cntGiai + 1].length; pos++) {
-                var giai = 'b#giai_' + (cntGiai + 1) + '_' + (pos + 1);
-                $(giai).text(result[cntGiai + 1][pos]);
-            }
-        }
-    }
-
-    function setHeadTailResult(data, reverse) {
-        if (data === null || typeof data.data.dau === "undefined" || typeof data.data.duoi === "undefined") {
-            return;
-        }
-
-        var head = data.data.dau;
-        var tail = data.data.duoi;
-        var first = ':first';
-        var last = ':last';
-        for (let pos = 0; pos < 10; pos++) {
-            if (!reverse) {
-                var nthChild = 'table#tblHead tbody tr:nth-child(' + (pos + 1) + ') ';
-
-                $(nthChild + first).text(pos);
-                $(nthChild + last).text(head[pos].join(','));
-
-            } else {
-                var nthChild = 'table#tblTail tbody tr:nth-child(' + (pos + 1) + ') ';
-
-                $(nthChild + first).text(tail[pos].join(','));
-                $(nthChild + last).text(pos);
-            }
-        }
-        // Set head data
-
-    }
-
-    /** Get Data XSMB From API */
-    function getDataXSMBFromAPI(dial_Date) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://api.xoso.me/app/json-kq-mienbac?name=XSMB&v=2&ngay_quay=' + dial_Date,
-            data: null,
-            dataType: 'json',
-            success: function(data) {
-                setLotoResult(data);
-                setHeadTailResult(data);
-                setHeadTailResult(data, true);
-            },
-            error: function(data) {
-                alert("Something went wrong!")
-            }
-        });
-    }
-</script>
-@endsection

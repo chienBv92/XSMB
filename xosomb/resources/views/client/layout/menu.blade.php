@@ -38,7 +38,7 @@
                 </ul>
             </li>
             <li class="fl clearfix"><a
-                    href="https://xoso.me/xsmb-sxmb-xstd-xshn-kqxsmb-ket-qua-xo-so-mien-bac.html" title="XSMB"
+                    href="#" title="XSMB"
                     class="fl">XSMB</a>
                 <ul id="_a_xsmb" class="menu-c2">
                     <li><a href="https://xoso.me/xsmb-thu-2-ket-qua-xo-so-mien-bac-thu-2.html"
@@ -57,7 +57,7 @@
                            title="XSMB Chủ nhật"><strong>XSMB Chủ nhật</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/xsmn-sxmn-kqxsmn-ket-qua-xo-so-mien-nam.html"
+            <li class="fl clearfix"><a href="#"
                                        title="XSMN" class="fl">XSMN</a>
                 <ul id="_a_xsmn" class="menu-c2">
                     <li><a href="https://xoso.me/xsmn-thu-2-sxmn-ket-qua-xo-so-mien-nam-thu-2.html"
@@ -76,8 +76,8 @@
                            title="XSMN Chủ nhật"><strong>XSMN Chủ nhật</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix active"><a
-                    href="https://xoso.me/xsmt-sxmt-kqxsmt-ket-qua-xo-so-mien-trung.html" title="XSMT"
+            <li class="fl clearfix"><a
+                    href="#" title="XSMT"
                     class="fl">XSMT</a>
                 <ul id="_a_xsmt" class="menu-c2">
                     <li><a href="https://xoso.me/xsmt-thu-2-sxmt-ket-qua-xo-so-mien-trung-thu-2.html"
@@ -97,7 +97,7 @@
                 </ul>
             </li>
             <li class="fl clearfix"><a
-                    href="https://xoso.me/xsmb-30-ngay-so-ket-qua-xo-so-kien-thiet-mien-bac.html"
+                    href="#"
                     title="Sổ kết quả" class="fl">Sổ kết quả</a>
                 <ul id="_a_sokq" class="menu-c2">
                     <li><a href="https://xoso.me/xsmb-30-ngay-so-ket-qua-xo-so-kien-thiet-mien-bac.html"
@@ -109,7 +109,7 @@
                 </ul>
             </li>
             <li class="fl clearfix"><a
-                    href="https://xoso.me/kq-xs-vietlott-truc-tiep-ket-qua-xo-so-vietlott-hom-nay.html"
+                    href="#"
                     title="Vietlott" class="fl">Vietlott</a>
                 <ul id="_a_vietlott" class="menu-c2">
                     <li><a href="https://xoso.me/kqxs-mega-645-ket-qua-xo-so-mega-6-45-vietlott-ngay-hom-nay.html"
@@ -125,7 +125,7 @@
                            title="Keno"><strong>Keno</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/du-doan-ket-qua-xo-so-kqxs-c229.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Dự đoán" class="fl">Dự đoán</a>
                 <ul id="_a_dudoan" class="menu-c2">
                     <li><a href="https://xoso.me/du-doan-ket-qua-xo-so-mien-trung-xsmt-c224.html"
@@ -139,7 +139,7 @@
                                 bắc</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/quay-thu-kqxs-quay-thu-ket-qua-xo-so.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Quay thử" class="fl">Quay thử</a>
                 <ul id="_a_quayso" class="menu-c2">
                     <li><a href="https://xoso.me/quay-thu-xsmb-quay-thu-xo-so-mien-bac.html"
@@ -152,7 +152,7 @@
                            title="Quay thử Vietlott"><strong>Quay thử Vietlott</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/thong-ke-giai-dac-biet-xo-so-mien-bac-xsmb.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Thống kê" class="fl">Thống kê</a>
                 <ul id="_a_statistic" class="menu-c2">
                     <li><a href="https://xoso.me/thong-ke-giai-dac-biet-xo-so-mien-bac-xsmb.html"
@@ -177,9 +177,9 @@
                            title="Thống kê Vietlott"><strong>Thống kê Vietlott</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/so-mo-lo-de-mien-bac-so-mo-giai-mong.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Sổ mơ" class="fl">Sổ mơ</a></li>
-            <li class="fl clearfix"><a href="https://xoso.me/soi-cau-bach-thu-lo-to-xsmb-hom-nay.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Tk cầu" class="fl">Tk cầu</a>
                 <ul id="_a_tkcau" class="menu-c2">
                     <li><a href="https://xoso.me/soi-cau-bach-thu-lo-to-xsmb-hom-nay.html"
@@ -194,7 +194,7 @@
                            title="Cầu lô tô theo thứ"><strong>Cầu lô tô theo thứ</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/lo-to-mien-bac-thong-ke-lo-to-xo-so-mien-bac.html"
+            <li class="fl clearfix"><a href="#"
                                        title="Lô tô" class="fl">Lô tô</a>
                 <ul id="_a_menu-loto" class="menu-c2">
                     <li><a href="https://xoso.me/lo-to-mien-bac-thong-ke-lo-to-xo-so-mien-bac.html"
@@ -205,7 +205,7 @@
                            title="Lô tô miền Nam"><strong>Lô tô miền Nam</strong></a></li>
                 </ul>
             </li>
-            <li class="fl clearfix"><a href="https://xoso.me/so-dau-duoi-mb.html" title="Sớ đầu đuôi"
+            <li class="fl clearfix"><a href="#" title="Sớ đầu đuôi"
                                        class="fl">Sớ đầu đuôi</a>
                 <ul id="_a_so-dauduoi" class="menu-c2">
                     <li><a href="https://xoso.me/so-dau-duoi-mb.html" title="Sớ đầu đuôi miền Bắc"><strong>Sớ
@@ -219,3 +219,10 @@
         </ul>
     </div>
 </div>
+
+<script>
+$("ul#nav-horizontal-list li").click(function(){
+       $("ul#nav-horizontal-list li").removeClass("active");
+       $(this).addClass("active");
+})
+</script>

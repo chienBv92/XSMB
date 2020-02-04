@@ -51,8 +51,9 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        @include('admin.layout.footer')
-        <!-- End of Footer -->
+    @include('admin.layout.footer')
+
+    <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

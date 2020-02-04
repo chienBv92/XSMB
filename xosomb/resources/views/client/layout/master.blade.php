@@ -43,7 +43,7 @@
     <div class="content">
         <div class="main clearfix">
 
-            @yield('content')
+            @include('client.content')
 
             @include('client.layout.menu_left')
 
