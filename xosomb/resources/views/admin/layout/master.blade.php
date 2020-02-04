@@ -43,7 +43,7 @@
         <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-        @yield('content')
+        @include('client.content')
 
         <!-- /.container-fluid -->
 
