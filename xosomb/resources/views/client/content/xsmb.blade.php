@@ -12,7 +12,7 @@ else
 ?>
 <div class="box">
     <h2 class="title-bor clearfix"><strong><a class="title-a" href="{{$provinceInfo['parentMetaTitle']}}" title="{{$shortParentName}}">{{$shortParentName}}</a> » <a class="title-a" href="{!! Request::segment(1) !!}" title="{{$shortName}}">
-                {{$shortName}}</a> » <a class="title-a" href="{!! Request::segment(1) !!}/{{$rollDate->format('yy-m-d')}}" title="{{$shortName.' '.$rollDate->format('yy-m-d')}}">{{$provinceInfo['provinceName'].' '.$rollDate->format('yy-m-d')}}</a>
+                {{$shortName}}</a> » <a class="title-a" href="{!! Request::segment(1) !!}?rollDate={{$rollDate->format('yy-m-d')}}" title="{{$shortName.' '.$rollDate->format('yy-m-d')}}">{{$provinceInfo['provinceName'].' '.$rollDate->format('yy-m-d')}}</a>
         </strong></h2>
 
     <div id="load_kq_mb_0">

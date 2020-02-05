@@ -30,7 +30,21 @@ return [
         'ket-qua-xo-so-binh-phuoc' => 'XSMN',
         'ket-qua-xo-so-tien-giang' => 'XSMN',
         'ket-qua-xo-so-kien-giang' => 'XSMN',
-        'ket-qua-xo-so-da-lat' => 'XSMN'
+        'ket-qua-xo-so-da-lat' => 'XSMN',
+        'ket-qua-xo-so-thua-thien-hue' => 'XSMT',
+        'ket-qua-xo-so-phu-yen' => 'XSMT',
+        'ket-qua-xo-so-quang-nam' => 'XSMT',
+        'ket-qua-xo-so-dac-lac' => 'XSMT',
+        'ket-qua-xo-so-da-nang' => 'XSMT',
+        'ket-qua-xo-so-khanh-hoa' => 'XSMT',
+        'ket-qua-xo-so-binh-dinh' => 'XSMT',
+        'ket-qua-xo-so-quang-binh' => 'XSMT',
+        'ket-qua-xo-so-quang-tri' => 'XSMT',
+        'ket-qua-xo-so-qia-lai' => 'XSMT',
+        'ket-qua-xo-so-ninh-thuan' => 'XSMT',
+        'ket-qua-xo-so-quang-ngai' => 'XSMT',
+        'ket-qua-xo-so-dac-nong' => 'XSMT',
+        'ket-qua-xo-so-kon-tum' => 'XSMT'
     ],
 
     'weekMaps' => [

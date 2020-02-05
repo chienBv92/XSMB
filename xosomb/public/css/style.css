@@ -183,6 +183,15 @@ input[type=radio] {
     width: 10%;
 }
 
+.one-city td.txt-giai {
+    width: 70px;
+    min-width: 60px;
+}
+
+.coltwocity th {
+    width: 45%;
+}
+
 .colthreecity th {
     width: 30%;
 }
