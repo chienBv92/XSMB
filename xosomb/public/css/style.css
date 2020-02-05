@@ -179,6 +179,21 @@ input[type=radio] {
 	width: 13px;
 	height: 13px
 }
+.colgiai th.first {
+    width: 10%;
+}
+
+.colthreecity th {
+    width: 30%;
+}
+
+.colfourcity th {
+    width: 22.5%;
+}
+
+.colgiai tbody>tr:nth-of-type(odd) {
+    background: #efefef;
+}
 
 .nobor {
 	border: none

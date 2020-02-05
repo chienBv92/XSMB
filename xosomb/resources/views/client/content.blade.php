@@ -137,7 +137,7 @@
 
     /** Get Data XSMB From API */
     function getDataXSMBFromAPI(beforeDay) {
-        var _url = '/getBox';
+        var _url = '/getBox/' + $('#provinceId').val();
         
         if (window.location.pathname != "/")
             _url = window.location.pathname + _url;

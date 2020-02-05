@@ -9,14 +9,19 @@ use App\Models\Province;
 
 class XSMBController extends xosoController
 {
-    public static function GetBox($beforeDay)
+    public static function GetBox($id, $beforeDay)
     {
+        if ($id === null) {
+            return null;
+        }
 
-        $roll_time = Province::where('del_flg', 0)->where('id', 1)->value('GioMoThuongSet');
+        $province = Province::where('del_flg', 0)->where('id', $id);
+        $parentProvince = Province::where('id', $province->value('parent_id'));
 
         $today = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
         if ($beforeDay === null) {
-            if ($today < $roll_time) {
+            if ($today < $province->value('GioMoThuongSet')) {
+
                 $dateAPI = XSMBController::getCurrentDateString(1);
             } else {
                 $dateAPI = XSMBController::getCurrentDateString(0);
@@ -24,22 +29,32 @@ class XSMBController extends xosoController
         } else {
             $dateAPI = $beforeDay;
         }
+        $api_url = $province->value('api_url');
 
+        if ($api_url === null)
+            return null;
+            
         $client = new Client();
-        a: $res = $client->get('http://api.xoso.me/app/json-kq-mienbac?name=XSMB&v=2&ngay_quay=' . $dateAPI);
+        loop: $res = $client->get($api_url . $dateAPI);
 
-        if($res->getStatusCode() == 200)
-        {
+        if ($res->getStatusCode() == 200) {
             $response_data = json_decode($res->getBody()->getContents(), true);
 
-            if($response_data['stt'] === '404'){
+            if ($response_data['stt'] === '404') {
                 $dateAPI = XSMBController::getBeforeDateString($dateAPI, 1);
-                goto a;
+                goto loop;
             }
-            
         }
 
-        $result = view('client.content.xsmb', ['response_data' =>  $response_data])->render();
+        $provinceInfo = [
+            'provinceCode' => $province->value('provinceCode'),
+            'provinceName' => $province->value('provinceName'),
+            'parentProvinceCode' => $parentProvince->value('provinceCode'),
+            'parentProvinceName' => $parentProvince->value('provinceName'),
+            'parentMetaTitle' => $parentProvince->value('meta_title')
+        ];
+
+        $result = view('client.content.xsmb', ['response_data' =>  $response_data], ['provinceInfo' => $provinceInfo])->render();
 
         $resultDate = $response_data['data']['resultDate'];
 
