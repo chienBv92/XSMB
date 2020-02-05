@@ -10,54 +10,55 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/getBox', function () {
+Route::get('/getBox/{id}', function ($id) {
     $controller = 'App\\Http\\Controllers\\XSMBController';
 
-    return $controller::GetBox(null);
+    return $controller::GetBox($id, null);
 });
 
-Route::get('/{path}/getBox', function ($path) {
+Route::get('/{path}/getBox/{id}', function ($path, $id) {
     if ($path === null) {
         $controller = 'App\\Http\\Controllers\\xosoController';
+    } elseif ($path === array_keys(config('constants.paths'))[1] || $path === array_keys(config('constants.paths'))[2]) {
+
+        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
+        return $controller::GetBoxMaster($id, null);
     } else {
         $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
     }
 
-    return $controller::GetBox(null);
+    return $controller::GetBox($id, null);
 });
 
-Route::get('/getBox/{beforeDay}', function ($beforeDay) {
-        $controller = 'App\\Http\\Controllers\\XSMBController';
-
-    return $controller::GetBox($beforeDay);
+Route::get('/getBox/{id}/{beforeDay}', function ($id, $beforeDay) {
+    $controller = 'App\\Http\\Controllers\\XSMBController';
+    return $controller::GetBox($id, $beforeDay);
 });
 
-Route::get('/{path}/getBox/{beforeDay}', function ($path, $beforeDay) {
+Route::get('/{path}/getBox/{id}/{beforeDay}', function ($path, $id, $beforeDay) {
     if ($path === null) {
         $controller = 'App\\Http\\Controllers\\xosoController';
+    } elseif ($path === array_keys(config('constants.paths'))[1] || $path === array_keys(config('constants.paths'))[2]) {
+        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
+        return $controller::GetBoxMaster($id, $beforeDay);
     } else {
         $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
     }
 
-    return $controller::GetBox($beforeDay);
+    return $controller::GetBox($id, $beforeDay);
 });
 
 Route::get('/{path}', function ($path) {
-
     $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
-    return $controller::Index();
+    
+    return $controller::Index($path);
 });
 
-Route::get('/', 'XSMBController@Index');
+Route::get('/', function () {
+    $controller = 'App\\Http\\Controllers\\XSMBController';
+    return $controller::Index(null);
+});
 
-
-// Route::get('/', function () {
-//     return view('client.content.xsmb');
-// });
-
-// Route::get('/getAllProvince', function () {
-//     return view('client.content.xsmb');
-// });
 Route::get('/getAllProvince', 'ProvinceController@getAllProvince');
 
 Route::get('/{metatile}', [

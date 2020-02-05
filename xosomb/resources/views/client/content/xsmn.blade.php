@@ -1,11 +1,11 @@
 <?php
-$lotData = $response_data["data"]["lotData"];
-$dau = $response_data["data"]["dau"];
-$duoi = $response_data["data"]["duoi"];
-$rollDate = Carbon\Carbon::createFromTimestamp(round($response_data["data"]["resultDate"] / 1000), '+07:00');
+$lotData = $response_data["lotData"];
+$dau = $response_data["dau"];
+$duoi = $response_data["duoi"];
+$rollDate = Carbon\Carbon::createFromTimestamp(round($response_data["resultDate"] / 1000), '+07:00');
 $shortName = 'XS' . $provinceInfo['provinceCode'];
 
-if ($provinceInfo['parentProvinceCode'] === null)
+if ($provinceInfo['parentProvinceCode'] === "")
     $shortParentName = $shortName;
 else
     $shortParentName = 'XS' . $provinceInfo['parentProvinceCode'];
@@ -19,57 +19,13 @@ else
         <div id="kq" class="one-city" data-region="1">
             <table id="kqxs_1" width="100%" cellspacing="0" cellpadding="0" border="0" data-title="" class="kqmb extendable">
                 <tbody>
-                    <tr class="madb">
-                        <td colspan="12" class="">Ký hiệu trúng ĐB:
-                            @foreach($lotData["MaDb"] as $item)
-                            <b>{{$item}}</b>
-                            @if(!$loop->last)
-                            <span>-</span>
-                            @endif
-                            @endforeach
-                        </td>
-                    </tr>
-                    <tr class="db">
-                        <td class="txt-giai">Đặc biệt</td>
-                        <td colspan="12" class="number"><b>{{$lotData["DB"][0]}}</b></td>
-                    </tr>
-                    <tr class="bg_f6">
-                        <td class="txt-giai">Giải nhất</td>
-                        <td colspan="12" class="number"><b>{{$lotData["1"][0]}}</b></td>
-                    </tr>
-                    <tr>
-                        <td class="txt-giai">Giải nhì</td>
-                        <td colspan="6" class="number"><b>{{$lotData["2"][0]}}</b></td>
-                        <td colspan="6" class="number"><b>{{$lotData["2"][1]}}</b></td>
-                    </tr>
-                    <tr class="giai3 bg_ef">
-                        <td class="txt-giai" rowspan="2">Giải ba</td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][0]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][1]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][2]}}</b></td>
+                    <tr class="giai8">
+                        <td class="txt-giai">Giải tám</td>
+                        <td colspan="12" class="number"><b>{{$lotData["8"][0]}}</b></td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="number" colspan="4"><b>{{$lotData["3"][3]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][4]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][5]}}</b></td>
-                    </tr>
-                    <tr>
-                        <td class="txt-giai">Giải tư</td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][0]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][1]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][2]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][3]}}</b></td>
-                    </tr>
-                    <tr class="giai5 bg_ef">
-                        <td class="txt-giai" rowspan="2">Giải năm</td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][0]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][1]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][2]}}</b></td>
-                    </tr>
-                    <tr class="bg_ef">
-                        <td class="number" colspan="4"><b>{{$lotData["5"][3]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][4]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][5]}}</b></td>
+                        <td class="txt-giai">Giải bảy</td>
+                        <td colspan="12" class="number"><b>{{$lotData["7"][0]}}</b></td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải sáu</td>
@@ -78,11 +34,37 @@ else
                         <td colspan="4" class="number"><b>{{$lotData["6"][2]}}</b></td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="txt-giai">Giải bảy</td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][0]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][1]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][2]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][3]}}</b></td>
+                        <td class="txt-giai">Giải năm</td>
+                        <td colspan="12" class="number"><b>{{$lotData["5"][0]}}</b></td>
+                    </tr>
+                    <tr class="giai4">
+                        <td rowspan="2" class="txt-giai">Giải bốn</td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][0]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][1]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][2]}}</b></td>
+                        <td colspan="3" class="number"><b>{{$lotData["4"][3]}}</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="number"><b>{{$lotData["4"][4]}}</b></td>
+                        <td colspan="4" class="number"><b>{{$lotData["4"][5]}}</b></td>
+                        <td colspan="4" class="number"><b>{{$lotData["4"][6]}}</b></td>
+                    </tr>
+                    <tr class="bg_ef">
+                        <td class="txt-giai">Giải ba</td>
+                        <td colspan="6" class="number"><b>{{$lotData["3"][0]}}</b></td>
+                        <td colspan="6" class="number"><b>{{$lotData["3"][1]}}</b></td>
+                    </tr>
+                    <tr>
+                        <td class="txt-giai">Giải nhì</td>
+                        <td colspan="12" class="number"><b>{{$lotData["2"][0]}}</b></td>
+                    </tr>
+                    <tr class="bg_ef">
+                        <td class="txt-giai">Giải nhất</td>
+                        <td colspan="12" class="number"><b>{{$lotData["1"][0]}}</b></td>
+                    </tr>
+                    <tr class="db">
+                        <td class="txt-giai">Đặc biệt</td>
+                        <td colspan="12" class="number"><b>{{$lotData["DB"][0]}}</b></td>
                     </tr>
                 </tbody>
             </table>
