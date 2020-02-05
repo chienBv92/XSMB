@@ -3,11 +3,11 @@ $cntProvinceRoll = count($response_data);
 $rollDate = Carbon\Carbon::createFromTimestamp(round($response_data[0]["data"]["resultDate"] / 1000), '+07:00');
 $shortName = 'XS' . $provinceInfo['provinceCode'];
 
-if($cntProvinceRoll == 3){
-    $classColWith = "colthreecity";
+if($cntProvinceRoll == 2){
+    $classColWith = "coltwocity";
 }
 else{
-    $classColWith = "colfourcity";
+    $classColWith = "colthreecity";
 }
 ?>
 
