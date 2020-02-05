@@ -11,8 +11,9 @@ class XSMBController extends xosoController
 {
     public static function GetBox($id, $beforeDay)
     {
+
         if ($id === null) {
-            return null;
+            return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
         }
 
         $province = Province::where('del_flg', 0)->where('id', $id);
@@ -32,8 +33,8 @@ class XSMBController extends xosoController
         $api_url = $province->value('api_url');
 
         if ($api_url === null)
-            return null;
-            
+            return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
+
         $client = new Client();
         loop: $res = $client->get($api_url . $dateAPI);
 
@@ -47,6 +48,7 @@ class XSMBController extends xosoController
         }
 
         $provinceInfo = [
+            'provinceId' => $province->value('id'),
             'provinceCode' => $province->value('provinceCode'),
             'provinceName' => $province->value('provinceName'),
             'parentProvinceCode' => $parentProvince->value('provinceCode'),
