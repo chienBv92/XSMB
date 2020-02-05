@@ -13,7 +13,7 @@ class XSMNController extends xosoController
     {
 
         if ($id === null) {
-            return null;
+            return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
         }
         $province = Province::where('del_flg', 0)->where('id', $id);
         $parentProvince = Province::where('id', $province->value('parent_id'));
@@ -33,7 +33,7 @@ class XSMNController extends xosoController
         $res = $client->get($province->value('api_url'));
 
         if ($res->getStatusCode() == 404) {
-            return null;
+            return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
         }
 
         if ($res->getStatusCode() == 200) {
@@ -48,7 +48,7 @@ class XSMNController extends xosoController
             'parentMetaTitle' => $parentProvince->value('meta_title')
         ];
 
-        $result = view('client.content.xsmn', ['response_data' =>  $response_data], ['provinceInfo' => $provinceInfo])->render();
+        $result = view('client.content.xsmt', ['response_data' =>  $response_data], ['provinceInfo' => $provinceInfo])->render();
 
         $resultDate = $response_data['resultDate'];
 
@@ -72,7 +72,7 @@ class XSMNController extends xosoController
             ->where('NgayMoThuongSet', 'LIKE', '%' . $rollDate->dayOfWeek . '%')->get();
 
         if (count($listRollProvinces) == 0)
-            return null;
+        return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
 
         $client = new Client();
         $response_data = array();
@@ -81,7 +81,7 @@ class XSMNController extends xosoController
             $res = $client->get($rollProvince->api_url);
 
             if ($res->getStatusCode() == 404) {
-                return null;
+                return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
             }
 
             if ($res->getStatusCode() == 200) {
@@ -95,12 +95,13 @@ class XSMNController extends xosoController
         }
 
         $provinceInfo = [
+            'provinceId' => $province->value('id'),
             'provinceCode' => $province->value('provinceCode'),
             'provinceName' => $province->value('provinceName'),
             'metaTitle' => $province->value('meta_title')
         ];
 
-        $result = view('client.content.xsmnMaster', ['response_data' =>  $response_data, 'provinceInfo' => $provinceInfo])->render();
+        $result = view('client.content.xsmtMaster', ['response_data' =>  $response_data, 'provinceInfo' => $provinceInfo])->render();
         $resultDate = $response_data[0]['data']['resultDate'];
 
         return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d')]);
