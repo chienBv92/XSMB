@@ -163,7 +163,7 @@
 
     $('#result-see-more').click(function() {
         var roll_Date = new Date($("#decreaseDay").val());
-        roll_Date.setDate(roll_Date.getDate() - 1);
+        roll_Date.setDate(roll_Date.getDate());
         $("#decreaseDay").val(formatDate(roll_Date));
 
         getDataXSMBFromAPI($("#decreaseDay").val());

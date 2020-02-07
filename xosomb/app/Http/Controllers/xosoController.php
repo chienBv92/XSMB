@@ -26,10 +26,10 @@ class xosoController extends Controller
         return response()->json(array('html' => null));
     }
 
-    protected static function getCurrentDateString($subDays)
+    protected static function getCurrentDateString($dateTime, $subDays)
     {
         // Get today date string
-        $today = Carbon::now('+07:00');
+        $today = Carbon::parse($dateTime);
         return $today->subdays($subDays)->format('yy-m-d');
     }
 
