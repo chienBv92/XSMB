@@ -9,7 +9,7 @@ use App\Models\Province;
 
 class XSMTController extends xosoController
 {
-    public static function GetBox($id, $beforeDay)
+    public static function GetBox($id, $beforeDay, $dayOfWeek)
     {
 
         if ($id === null) {

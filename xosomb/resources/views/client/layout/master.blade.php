@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta content="vi" http-equiv="content-language">
-    <title>XSMT thứ 7- SXMT thứ 7 - XSMT t7 - Xổ số miền Trung thứ 7 hàng tuần</title>
+    <title>{{$province_Name}}</title>
     <meta name="description" content="XSMT thứ 7 - XSMT t7 - SXMT t7 - KQXSMT thứ 7 - Kết quả xổ số miền Trung thứ 7 hàng tuần mở thưởng trực tiếp vào lúc 17h15p - XSMTRUNG thứ 7. Xem xổ số kiến thiết miền Trung thứ 7 tuần rồi và các tuần trước nhanh và chính xác nhất">
     <meta name="keywords" content="KQXSMT thu 7, XSMT thu 7, xsmt t7,Xổ số miền Trung thứ 7,xo so mien trung thu 7,xsmt thu 7 hang tuan,xsmt thứ 7 hàng tuần,Kết quả xổ số miền Trung thứ 7, Ket qua xo so mien Trung thu 7">
     <meta name="AUTHOR" content="xoso.me">

@@ -10,42 +10,43 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/getBox/{id}', function ($id) {
+
+Route::get('/getBoxByDOW/{id}/{dayOfWeek}/{beforeDay?}', function ($id, $dayOfWeek, $beforeDay = null) {
     $controller = 'App\\Http\\Controllers\\XSMBController';
 
-    return $controller::GetBox($id, null);
+    return $controller::GetBox($id, $beforeDay, $dayOfWeek);
 });
 
-Route::get('/{path}/getBox/{id}', function ($path, $id) {
+Route::get('/{path}/getBoxByDOW/{id}/{dayOfWeek}/{beforeDay?}', function ($path, $id, $dayOfWeek, $beforeDay = null) {
     if ($path === null) {
         $controller = 'App\\Http\\Controllers\\xosoController';
     } elseif ($path === array_keys(config('constants.paths'))[1] || $path === array_keys(config('constants.paths'))[2]) {
-
         $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
         return $controller::GetBoxMaster($id, null);
     } else {
         $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
     }
+    return $controller::GetBox($id, $beforeDay, $dayOfWeek);
 
-    return $controller::GetBox($id, null);
+});
+
+Route::get('/getBox/{id}', function ($id) {
+    $controller = 'App\\Http\\Controllers\\XSMBController';
+
+    return $controller::GetBox($id, null, null);
+});
+
+Route::get('/{path}/getBox/{id}', function ($path, $id) {
+    return convertPath($path, $id, null);
 });
 
 Route::get('/getBox/{id}/{beforeDay}', function ($id, $beforeDay) {
     $controller = 'App\\Http\\Controllers\\XSMBController';
-    return $controller::GetBox($id, $beforeDay);
+    return $controller::GetBox($id, $beforeDay, null);
 });
 
 Route::get('/{path}/getBox/{id}/{beforeDay}', function ($path, $id, $beforeDay) {
-    if ($path === null) {
-        $controller = 'App\\Http\\Controllers\\xosoController';
-    } elseif ($path === array_keys(config('constants.paths'))[1] || $path === array_keys(config('constants.paths'))[2]) {
-        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
-        return $controller::GetBoxMaster($id, $beforeDay);
-    } else {
-        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
-    }
-
-    return $controller::GetBox($id, $beforeDay);
+    return convertPath($path, $id, $beforeDay);
 });
 
 Route::get('/{path}', function ($path) {
@@ -79,3 +80,15 @@ Route::group([
         return view('admin.index');
     });
 });
+
+function convertPath($path, $id, $beforeDay){
+    if ($path === null) {
+        $controller = 'App\\Http\\Controllers\\xosoController';
+    } elseif ($path === array_keys(config('constants.paths'))[1] || $path === array_keys(config('constants.paths'))[2]) {
+        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
+        return $controller::GetBoxMaster($id, $beforeDay);
+    } else {
+        $controller = 'App\\Http\\Controllers\\' . config('constants.paths.' . $path) . 'Controller';
+    }
+    return $controller::GetBox($id, $beforeDay, null);
+};
