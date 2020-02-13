@@ -55,5 +55,15 @@ return [
         4 => 'Thứ 5',
         5 => 'Thứ 6',
         6 => 'Thứ 7',
+    ],
+
+    'weekMapsEN' => [
+        0 => 'Sunday',
+        1 => 'Monday',
+        2 => 'TuesDay',
+        3 => 'Wednesday',
+        4 => 'Thursday',
+        5 => 'Friday',
+        6 => 'Saturday',
     ]
 ];

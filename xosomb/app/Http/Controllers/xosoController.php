@@ -13,15 +13,20 @@ class xosoController extends Controller
     public static function Index($meta_title)
     {
         if ($meta_title == null) {
-            $id = 1;
+            $xsmbID = 1;
+            $province = Province::where('del_flg', 0)->where('id', $xsmbID);
         } else {
-            $id = Province::where('del_flg', 0)->where('meta_title', $meta_title)->value('id');
+            $province = Province::where('del_flg', 0)->where('meta_title', $meta_title);
         }
 
-        return view('client.layout.master', array('id' => $id));
+        $id = $province->value('id');
+        $province_Name = $province->value('provinceName');
+        $rollInfoHtml = $province->value('Roll_Info_HTML');
+
+        return view('client.layout.master', array('id' => $id, 'province_Name' => $province_Name, 'roll_Info_Html' => $rollInfoHtml));
     }
 
-    public static function GetBox($id, $beforeDay)
+    public static function GetBox($id, $beforeDay, $dayOfWeek)
     {
         return response()->json(array('html' => null));
     }

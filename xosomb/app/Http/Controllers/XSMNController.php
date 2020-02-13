@@ -9,9 +9,8 @@ use App\Models\Province;
 
 class XSMNController extends xosoController
 {
-    public static function GetBox($id, $beforeDay)
+    public static function GetBox($id, $beforeDay, $dayOfWeek)
     {
-
         if ($id === null) {
             return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
         }

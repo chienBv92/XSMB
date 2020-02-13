@@ -9,7 +9,7 @@ use App\Models\Province;
 
 class XSMBController extends xosoController
 {
-    public static function GetBox($id, $beforeDay)
+    public static function GetBox($id, $beforeDay, $dayOfWeek)
     {
         if ($id === null) {
             return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
@@ -20,17 +20,25 @@ class XSMBController extends xosoController
         $rollDate = $province->value('NgayMoThuongSet');
         $rollTime = $province->value('GioMoThuongSet');
 
-
         $todayDateTime = Carbon::now('Asia/Ho_Chi_Minh');
-
-        if ($beforeDay === null) {
-            // Trường hợp get data theo ngày mới nhất
-            $subDay = XSMBController::getLastRollDate($todayDateTime, $rollDate, $rollTime);
-
-            $dateAPI = XSMBController::getCurrentDateString($todayDateTime, $subDay);
+        if ($dayOfWeek !== null) {
+            if ($beforeDay !== null) {
+                $dateAPI = Carbon::parse($beforeDay)->subdays(6)->format('yy-m-d');
+            } else {
+                $dateAPI = XSMBController::getDayOfWeek($dayOfWeek, $rollTime);
+            }
+            $subDay = 7;
         } else {
-            // Trường hợp get data theo ngày quá khứ
-            $dateAPI = $beforeDay;
+            if ($beforeDay === null) {
+                // Trường hợp get data theo ngày mới nhất
+                $subDay = XSMBController::getLastRollDate($todayDateTime, $rollDate, $rollTime);
+                $dateAPI = XSMBController::getCurrentDateString($todayDateTime, $subDay);
+            } else {
+                // Trường hợp get data theo ngày quá khứ
+
+                $subDay = 7;
+                $dateAPI = $beforeDay;
+            }
         }
 
         $api_url = $province->value('api_url');
@@ -42,10 +50,15 @@ class XSMBController extends xosoController
         loop: $res = $client->get($api_url . $dateAPI);
 
         if ($res->getStatusCode() == 200) {
+
             $response_data = json_decode($res->getBody()->getContents(), true);
 
             if ($response_data['stt'] === '404') {
-                $dateAPI = XSMBController::getBeforeDateString($dateAPI, XSMBController::getLastRollDate(Carbon::parse($dateAPI), $rollDate, $rollTime));
+                // var_dump($dateAPI.' '.$subDay.' ' .$rollDate.' '.$rollTime);
+                if ($dayOfWeek !== null)
+                    $dateAPI = XSMBController::getBeforeDateString($dateAPI, 7);
+                else
+                    $dateAPI = XSMBController::getBeforeDateString($dateAPI, XSMBController::getLastRollDate(Carbon::parse($dateAPI)->subdays($subDay), $rollDate, $rollTime));
                 goto loop;
             }
         }
@@ -63,9 +76,8 @@ class XSMBController extends xosoController
 
         $resultDate = Carbon::createFromTimestamp(round($response_data['data']['resultDate'] / 1000), '+07:00');
 
-        $before = XSMBController::getLastRollDate($resultDate->subdays(1), $rollDate, $rollTime);
+        $before = XSMBController::getLastRollDate($resultDate, $rollDate, $rollTime);
         $rollDateBefore = $resultDate->subdays($before)->format('yy-m-d');
-
         return response()->json(['html' => $result, 'roll_day' => $rollDateBefore]);
     }
 
@@ -73,18 +85,24 @@ class XSMBController extends xosoController
     {
         // Quay thưởng hằng ngày
         if ($rollDate === null) {
-            if (($currentDateTime->toDateString() === Carbon::now()->toDateString() && $currentDateTime->toTimeString() >= $rollTime) ||($currentDateTime->toDateString() !== Carbon::now()->toDateString())) {
+            // var_dump("00000");
+
+            if (($currentDateTime->toDateString() === Carbon::now()->toDateString() && $currentDateTime->toTimeString() . '.000' >= $rollTime)) {
+                // var_dump("0");
+
                 $subDay = 0;
             } else {
                 $subDay = 1;
+                // var_dump("1");
+
             }
         } else {
+            // var_dump("11111");
             $arrRollDate = explode(',', $rollDate);
-
 
             // Lấy ngày quay số gần nhất
             // if($currentDateTime->toDateString() === Carbon::now()->toDateString())
-            for ($idx = count($arrRollDate) -1; $idx >= 0; $idx--) {
+            for ($idx = count($arrRollDate) - 1; $idx >= 0; $idx--) {
                 if ($currentDateTime->toDateString() === Carbon::now()->toDateString() && $currentDateTime->dayOfWeek === $arrRollDate[$idx] && $currentDateTime->toTimeString() >= $rollTime) {
                     $subDay = 0;
                     break;
@@ -94,10 +112,22 @@ class XSMBController extends xosoController
                 }
 
                 if ($idx === 0) {
-                   $subDay = $currentDateTime->dayOfWeek + 7 - $arrRollDate[count($arrRollDate) - 1];
+                    $subDay = $currentDateTime->dayOfWeek + 7 - $arrRollDate[count($arrRollDate) - 1];
                 }
             }
         }
         return $subDay;
+    }
+
+    private static function getDayOfWeek($dayOfWeek, $rollTime)
+    {
+        $strDOW = config('constants.weekMapsEN')[$dayOfWeek];
+        $todayDateTime = Carbon::now('Asia/Ho_Chi_Minh');
+        if ($dayOfWeek === $todayDateTime->dayOfWeek && $todayDateTime->toTimeString() . '.000' >= $rollTime) {
+            $lastDOW = $todayDateTime;
+        } else {
+            $lastDOW = Carbon::createFromTimeStamp(strtotime("last $strDOW", $todayDateTime->timestamp));
+        }
+        return $lastDOW->format('yy-m-d');
     }
 }
