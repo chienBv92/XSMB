@@ -29,72 +29,72 @@ else{
                     <tr class="g8">
                         <td>G8</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][8][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][8][0] !== "") {{$response_data[$i]['data']['lotData'][8][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G7</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][7][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][7][0] !== "") {{$response_data[$i]['data']['lotData'][7][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G6</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][6][0]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][6][1]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][6][2]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][6][0] !== "") {{$response_data[$i]['data']['lotData'][6][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][6][1] !== "") {{$response_data[$i]['data']['lotData'][6][1]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][6][2] !== "") {{$response_data[$i]['data']['lotData'][6][2]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G5</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][5][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][5][0] !== "") {{$response_data[$i]['data']['lotData'][5][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G4</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][4][0]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][1]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][2]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][3]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][4]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][5]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][4][6]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][0] !== "") {{$response_data[$i]['data']['lotData'][4][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][1] !== "") {{$response_data[$i]['data']['lotData'][4][1]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][2] !== "") {{$response_data[$i]['data']['lotData'][4][2]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][3] !== "") {{$response_data[$i]['data']['lotData'][4][3]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][4] !== "") {{$response_data[$i]['data']['lotData'][4][4]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][5] !== "") {{$response_data[$i]['data']['lotData'][4][5]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][4][6] !== "") {{$response_data[$i]['data']['lotData'][4][6]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G3</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][3][0]}}</div>
-                            <div>{{$response_data[$i]['data']['lotData'][3][1]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][3][0] !== "") {{$response_data[$i]['data']['lotData'][3][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
+                            <div>@if($response_data[$i]['data']['lotData'][3][1] !== "") {{$response_data[$i]['data']['lotData'][3][1]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G2</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][2][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][2][0] !== "") {{$response_data[$i]['data']['lotData'][2][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr>
                         <td>G1</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData'][1][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData'][1][0] !== "") {{$response_data[$i]['data']['lotData'][1][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>
                     <tr class="gdb">
                         <td>ĐB</td>
                         @for($i = 0; $i < $cntProvinceRoll; $i++) <td>
-                            <div>{{$response_data[$i]['data']['lotData']['DB'][0]}}</div>
+                            <div>@if($response_data[$i]['data']['lotData']['DB'][0] !== "") {{$response_data[$i]['data']['lotData']['DB'][0]}} @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</div>
                             </td>
                             @endfor
                     </tr>

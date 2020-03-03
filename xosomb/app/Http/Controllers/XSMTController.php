@@ -51,8 +51,9 @@ class XSMTController extends xosoController
         $result = view('client.content.xsmt', ['response_data' =>  $response_data], ['provinceInfo' => $provinceInfo])->render();
 
         $resultDate = $response_data['resultDate'];
+        $live = $response_data['tuong_thuat'];
 
-        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d')]);
+        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d'), 'live' => $live]);
     }
 
     public static function GetBoxMaster($id, $beforeDay)
@@ -72,7 +73,7 @@ class XSMTController extends xosoController
             ->where('NgayMoThuongSet', 'LIKE', '%' . $rollDate->dayOfWeek . '%')->get();
 
         if (count($listRollProvinces) == 0)
-        return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
+            return response()->json(['html' => '<p>Không tìm thấy kết quả phù hợp!</p>']);
 
         $client = new Client();
         $response_data = array();
@@ -103,7 +104,7 @@ class XSMTController extends xosoController
 
         $result = view('client.content.xsmtMaster', ['response_data' =>  $response_data, 'provinceInfo' => $provinceInfo])->render();
         $resultDate = $response_data[0]['data']['resultDate'];
-
-        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d')]);
+        $live = $response_data[0]['data']['tuong_thuat'];
+        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d'), 'live' => $live]);
     }
 }

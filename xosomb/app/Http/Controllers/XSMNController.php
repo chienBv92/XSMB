@@ -51,7 +51,9 @@ class XSMNController extends xosoController
 
         $resultDate = $response_data['resultDate'];
 
-        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d')]);
+        $live = $response_data['tuong_thuat'];
+
+        return response()->json(['html' => $result, 'roll_day' => Carbon::createFromTimestamp(round($resultDate / 1000), '+07:00')->format('yy-m-d'), 'live' => $live]);
     }
 
     public static function GetBoxMaster($id, $beforeDay)
