@@ -44,6 +44,7 @@
         </li>
     </ul>
     @endif
+    <input type="hidden" id="live" name="live" value="">
     <input type="hidden" id="decreaseDay" name="decreaseDay" value="">
     <div id="box_xs">
 
@@ -67,7 +68,7 @@
     });
 
     /** Get Data XSMB From API */
-    function getDataXSMBFromAPI(beforeDay, dayOfWeek) {
+    function getDataXSMBFromAPI(beforeDay, dayOfWeek, interval = true) {
         var _url = '';
 
         _url += '/' + $('#provinceId').val();
@@ -87,29 +88,46 @@
         else
             _url = window.location.pathname + _url;
 
-        $.ajax({
-            type: 'GET',
-            url: _url,
-            data: null,
-            success: function(res) {
-                $("#box_xs").append(res.html);
-                $("#decreaseDay").val(res.roll_day);
-            },
-            error: function(res) {
-                alert(res.responseText);
-                // alert("Something incorrect when render HTML");
-            }
-        });
+        getResult(_url, false);
+        if (interval) {
+            var refeshId = setInterval(function() {
+                getResult(_url, true);
+                if (!$('#live').val()) {
+                    clearInterval(refeshId);
+                }
+            }, 5000);
+        }
     }
 
     $('#result-see-more').click(function() {
         var dayOfWeek = getURLParameter('dOW');
         var roll_Date = new Date($("#decreaseDay").val());
         roll_Date.setDate(roll_Date.getDate());
-        $("#decreaseDay").val(formatDate(roll_Date), null);
+        $("#decreaseDay").val(formatDate(roll_Date), null, false);
 
-        getDataXSMBFromAPI($("#decreaseDay").val(), dayOfWeek);
+        getDataXSMBFromAPI($("#decreaseDay").val(), dayOfWeek, false);
     })
+
+    function getResult(_url, realTime = false) {
+        $.ajax({
+            type: 'GET',
+            url: _url,
+            data: null,
+            success: function(res) {
+                if (!realTime) {
+                    $("#box_xs").append(res.html);
+                } else {
+                    $("#box_xs .box").first().html(res.html);
+                }
+                $("#decreaseDay").val(res.roll_day);
+                $("#live").val(res.live);
+            },
+            error: function(res) {
+                alert(res.responseText);
+                // alert("Something incorrect when render HTML");
+            }
+        })
+    }
 
     function getURLParameter(sParam) {
         var sPageURL = window.location.search.substring(1);

@@ -31,58 +31,58 @@ else
                     </tr>
                     <tr class="db">
                         <td class="txt-giai">Đặc biệt</td>
-                        <td colspan="12" class="number"><b>{{$lotData["DB"][0]}}</b></td>
+                        <td colspan="12" class="number">@if($lotData["DB"][0] !== "") <b>{{$lotData["DB"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="bg_f6">
                         <td class="txt-giai">Giải nhất</td>
-                        <td colspan="12" class="number"><b>{{$lotData["1"][0]}}</b></td>
+                        <td colspan="12" class="number">@if($lotData["1"][0] !== "") <b>{{$lotData["1"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải nhì</td>
-                        <td colspan="6" class="number"><b>{{$lotData["2"][0]}}</b></td>
-                        <td colspan="6" class="number"><b>{{$lotData["2"][1]}}</b></td>
+                        <td colspan="6" class="number">@if($lotData["2"][0] !== "") <b>{{$lotData["2"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="6" class="number">@if($lotData["2"][1] !== "") <b>{{$lotData["2"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="giai3 bg_ef">
                         <td class="txt-giai" rowspan="2">Giải ba</td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][0]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][1]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][2]}}</b></td>
+                        <td class="number" colspan="4">@if($lotData["3"][0] !== "") <b>{{$lotData["3"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["3"][1] !== "") <b>{{$lotData["3"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["3"][2] !== "") <b>{{$lotData["3"][2]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="number" colspan="4"><b>{{$lotData["3"][3]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][4]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["3"][5]}}</b></td>
+                        <td class="number" colspan="4">@if($lotData["3"][3] !== "") <b>{{$lotData["3"][3]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["3"][4] !== "") <b>{{$lotData["3"][4]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["3"][5] !== "") <b>{{$lotData["3"][5]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải tư</td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][0]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][1]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][2]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["4"][3]}}</b></td>
+                        <td colspan="3" class="number">@if($lotData["4"][0] !== "") <b>{{$lotData["4"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["4"][1] !== "") <b>{{$lotData["4"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["4"][2] !== "") <b>{{$lotData["4"][2]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["4"][3] !== "") <b>{{$lotData["4"][3]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="giai5 bg_ef">
                         <td class="txt-giai" rowspan="2">Giải năm</td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][0]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][1]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][2]}}</b></td>
+                        <td class="number" colspan="4">@if($lotData["5"][0] !== "") <b>{{$lotData["5"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["5"][1] !== "") <b>{{$lotData["5"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["5"][2] !== "") <b>{{$lotData["5"][2]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="bg_ef">
-                        <td class="number" colspan="4"><b>{{$lotData["5"][3]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][4]}}</b></td>
-                        <td class="number" colspan="4"><b>{{$lotData["5"][5]}}</b></td>
+                        <td class="number" colspan="4">@if($lotData["5"][3] !== "") <b>{{$lotData["5"][3]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["5"][4] !== "") <b>{{$lotData["5"][4]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td class="number" colspan="4">@if($lotData["5"][5] !== "") <b>{{$lotData["5"][5]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr>
                         <td class="txt-giai">Giải sáu</td>
-                        <td colspan="4" class="number"><b>{{$lotData["6"][0]}}</b></td>
-                        <td colspan="4" class="number"><b>{{$lotData["6"][1]}}</b></td>
-                        <td colspan="4" class="number"><b>{{$lotData["6"][2]}}</b></td>
+                        <td colspan="4" class="number">@if($lotData["6"][0] !== "") <b>{{$lotData["6"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="4" class="number">@if($lotData["6"][1] !== "") <b>{{$lotData["6"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="4" class="number">@if($lotData["6"][2] !== "") <b>{{$lotData["6"][2]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                     <tr class="bg_ef">
                         <td class="txt-giai">Giải bảy</td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][0]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][1]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][2]}}</b></td>
-                        <td colspan="3" class="number"><b>{{$lotData["7"][3]}}</b></td>
+                        <td colspan="3" class="number">@if($lotData["7"][0] !== "") <b>{{$lotData["7"][0]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["7"][1] !== "") <b>{{$lotData["7"][1]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["7"][2] !== "") <b>{{$lotData["7"][2]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
+                        <td colspan="3" class="number">@if($lotData["7"][3] !== "") <b>{{$lotData["7"][3]}}</b> @else <img src="/images/loader-red.gif" width="15" height="15" alt="">@endif</td>
                     </tr>
                 </tbody>
             </table>

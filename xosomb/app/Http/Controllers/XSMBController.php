@@ -35,7 +35,6 @@ class XSMBController extends xosoController
                 $dateAPI = XSMBController::getCurrentDateString($todayDateTime, $subDay);
             } else {
                 // Trường hợp get data theo ngày quá khứ
-
                 $subDay = 7;
                 $dateAPI = $beforeDay;
             }
@@ -52,9 +51,7 @@ class XSMBController extends xosoController
         if ($res->getStatusCode() == 200) {
 
             $response_data = json_decode($res->getBody()->getContents(), true);
-
             if ($response_data['stt'] === '404') {
-                // var_dump($dateAPI.' '.$subDay.' ' .$rollDate.' '.$rollTime);
                 if ($dayOfWeek !== null)
                     $dateAPI = XSMBController::getBeforeDateString($dateAPI, 7);
                 else
@@ -78,26 +75,21 @@ class XSMBController extends xosoController
 
         $before = XSMBController::getLastRollDate($resultDate, $rollDate, $rollTime);
         $rollDateBefore = $resultDate->subdays($before)->format('yy-m-d');
-        return response()->json(['html' => $result, 'roll_day' => $rollDateBefore]);
+        $live = $response_data['data']['tuong_thuat'];
+        return response()->json(['html' => $result, 'roll_day' => $rollDateBefore, 'live' => $live]);
     }
 
     private static function getLastRollDate($currentDateTime, $rollDate, $rollTime)
     {
         // Quay thưởng hằng ngày
         if ($rollDate === null) {
-            // var_dump("00000");
 
             if (($currentDateTime->toDateString() === Carbon::now()->toDateString() && $currentDateTime->toTimeString() . '.000' >= $rollTime)) {
-                // var_dump("0");
-
                 $subDay = 0;
             } else {
                 $subDay = 1;
-                // var_dump("1");
-
             }
         } else {
-            // var_dump("11111");
             $arrRollDate = explode(',', $rollDate);
 
             // Lấy ngày quay số gần nhất
